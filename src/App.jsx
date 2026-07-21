@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const navLinks = [
@@ -12,7 +12,18 @@ const projects = [
   { title: 'Bot de Vagas no WhatsApp', type: 'Automação', description: 'Automação que pesquisa vagas por API, processa os resultados e envia notificações formatadas diretamente pelo WhatsApp.', tags: ['Make', 'RapidAPI', 'Twilio', 'WhatsApp'], code: 'https://github.com/RodrigoMA21/job-whatsapp-bot' },
 ]
 
-const technologies = ['HTML5', 'CSS3', 'JavaScript', 'React', 'Node.js', 'Git', 'SQL', 'Playwright']
+const technologies = [
+  { name: 'Java', icon: 'java' },
+  { name: 'Spring Boot', icon: 'spring' },
+  { name: 'PostgreSQL', icon: 'postgres' },
+  { name: 'React', icon: 'react' },
+  { name: 'Git', icon: 'git' },
+  { name: 'GitHub', icon: 'github' },
+  { name: 'Docker', icon: 'docker' },
+  { name: 'Figma', icon: 'figma' },
+  { name: 'Python', icon: 'python' },
+  { name: 'Flask', icon: 'flask' },
+]
 
 function Icon({ name, size = 20 }) {
   const paths = {
@@ -24,6 +35,7 @@ function Icon({ name, size = 20 }) {
     linkedin: <><path d="M6 9v10M6 5v.01M10 19v-6a4 4 0 0 1 8 0v6M10 13v6" /></>,
     mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>,
     external: <><path d="M14 5h5v5M19 5l-8 8" /><path d="M19 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4" /></>,
+    up: <><path d="M12 19V5m0 0-6 6m6-6 6 6" /></>,
   }
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>
 }
@@ -34,7 +46,15 @@ function SectionTitle({ eyebrow, title, text }) {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [showBackToTop, setShowBackToTop] = useState(false)
   const closeMenu = () => setMenuOpen(false)
+
+  useEffect(() => {
+    const updateBackToTop = () => setShowBackToTop(window.scrollY > 500)
+    window.addEventListener('scroll', updateBackToTop, { passive: true })
+    updateBackToTop()
+    return () => window.removeEventListener('scroll', updateBackToTop)
+  }, [])
 
   return <main>
     <header className="site-header">
@@ -51,24 +71,25 @@ function App() {
         <p className="eyebrow">Disponível para novos desafios</p>
         <h1>Transformo ideias em <em>experiências digitais</em> que funcionam.</h1>
         <p className="hero-description">Olá, eu sou Rodrigo. Desenvolvedor Full Stack focado em criar produtos web rápidos, intuitivos e com propósito.</p>
-        <div className="hero-actions"><a className="button primary" href="#projetos">Conheça meu trabalho <Icon name="arrow" size={18} /></a><a className="button ghost" href="/curriculo-rodrigo.txt" download><Icon name="download" size={18} /> Baixar currículo</a></div>
+        <div className="hero-actions"><a className="button primary" href="#projetos">Conheça meu trabalho <Icon name="arrow" size={18} /></a><a className="button ghost" href="/Rodrigo_Mayer_Alves_Curriculo_TI.pdf" download><Icon name="download" size={18} /> Baixar currículo</a></div>
       </div>
       <aside className="hero-card" aria-label="Perfil profissional"><div className="orb orb-one" /><div className="orb orb-two" /><div className="profile-mark">&lt;/&gt;</div><p>FULL STACK<br />DEVELOPER</p><div className="availability"><span /> Em construção constante</div></aside>
     </section>
 
     <section id="sobre" className="about section"><SectionTitle eyebrow="01 / SOBRE MIM" title="Tecnologia com olhar para pessoas." /><div className="about-text"><p>Gosto de transformar problemas reais em soluções simples, bonitas e úteis. Trabalho do planejamento à entrega, unindo código limpo, atenção aos detalhes e uma boa experiência para quem usa o produto.</p><p>Minha jornada é guiada por curiosidade e evolução contínua — sempre explorando ferramentas, padrões e ideias que tornam a web melhor.</p><a className="text-link" href="#contato">Vamos criar algo juntos <Icon name="arrow" size={17} /></a></div></section>
 
-    <section id="tecnologias" className="section tech-section"><SectionTitle eyebrow="02 / TECNOLOGIAS" title="Ferramentas que dão vida às ideias." text="Uma base sólida para construir interfaces, serviços e experiências completas." /><div className="tech-grid">{technologies.map((tech, index) => <div className="tech-item" key={tech}><span>0{index + 1}</span><strong>{tech}</strong></div>)}</div></section>
+    <section id="tecnologias" className="section tech-section"><SectionTitle eyebrow="02 / TECNOLOGIAS" title="Ferramentas que dão vida às ideias." text="Tecnologias que utilizo no desenvolvimento de APIs, aplicações web e experiências digitais." /><div className="tech-grid">{technologies.map((tech, index) => <div className="tech-item" key={tech.name}><span>{String(index + 1).padStart(2, '0')}</span><img src={`https://skillicons.dev/icons?i=${tech.icon}&theme=dark`} alt={`Ícone ${tech.name}`} loading="lazy" /><strong>{tech.name}</strong></div>)}</div></section>
 
     <section id="projetos" className="section projects-section"><SectionTitle eyebrow="03 / PROJETOS" title="Seleção de trabalhos." text="Projetos que refletem estudo, prática e vontade de resolver problemas de verdade." /><div className="project-list">{projects.map((project, index) => <article className="project-card" key={project.title}><div className={`project-art art-${index + 1}`}><span>{project.type}</span><strong>0{index + 1}</strong></div><div className="project-content"><p className="project-type">{project.type}</p><h3>{project.title}</h3><p>{project.description}</p><ul>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><div className="project-links"><a href={project.code} target="_blank" rel="noreferrer" aria-label={`Abrir código do projeto ${project.title}`}>Código <Icon name="github" size={17} /></a>{project.demo && <a href={project.demo} target="_blank" rel="noreferrer" aria-label={`Abrir demonstração do projeto ${project.title}`}>Ver projeto <Icon name="external" size={17} /></a>}</div></div></article>)}</div></section>
 
-    <section id="experiencia" className="section experience"><SectionTitle eyebrow="04 / TRAJETÓRIA" title="Evoluir faz parte do processo." /><div className="timeline"><article><span>Hoje</span><div><h3>Desenvolvedor Full Stack</h3><p>Construindo projetos pessoais e ampliando repertório em desenvolvimento web, automação e boas práticas de engenharia.</p></div></article><article><span>Em evolução</span><div><h3>Estudos e especialização</h3><p>Aprofundando conhecimentos em React, Node.js, bancos de dados e testes automatizados.</p></div></article></div></section>
+    <section id="experiencia" className="section experience"><SectionTitle eyebrow="04 / TRAJETÓRIA" title="Evoluir faz parte do processo." /><div className="timeline"><article><span>Experiência</span><div><h3>Quality Assurance (QA)</h3><p>Atuação com qualidade de software, realizando testes, identificando falhas e contribuindo para experiências mais confiáveis para os usuários.</p></div></article><article><span>Hoje</span><div><h3>Desenvolvedor Full Stack</h3><p>Construindo projetos pessoais e ampliando repertório em desenvolvimento web, automação e boas práticas de engenharia.</p></div></article><article><span>Em evolução</span><div><h3>Estudos e especialização</h3><p>Aprofundando conhecimentos em React, Node.js, bancos de dados e testes automatizados.</p></div></article></div></section>
 
-    <section id="certificados" className="section certificate"><div><p className="eyebrow">05 / CERTIFICADOS</p><h2>Aprendizado que vira entrega.</h2><p>Uma coleção em crescimento de cursos, práticas e experiências que fortalecem minha base técnica.</p></div><a className="button ghost" href="#contato">Solicitar certificados <Icon name="arrow" size={18} /></a></section>
+    <section id="certificados" className="section certificate"><div><p className="eyebrow">05 / CERTIFICADOS</p><h2>Aprendizado que vira entrega.</h2><p>Estudos em Java que fortalecem minha atuação no desenvolvimento de APIs, regras de negócio e aplicações Full Stack.</p><a className="button ghost certificate-download" href="/Rodrigo_Mayer_Alves_Curriculo_TI.pdf" download><Icon name="download" size={18} /> Baixar currículo</a></div><article className="certificate-card" aria-label="Certificado de Java"><div className="certificate-seal"><img src="https://skillicons.dev/icons?i=java&theme=dark" alt="Símbolo Java" /></div><div><span>FORMAÇÃO COMPLEMENTAR</span><h3>Certificado Java</h3><p>Fundamentos e desenvolvimento de aplicações com Java.</p><a className="certificate-link" href="/certificado-java-rodrigo-mayer-alves.pdf" download><Icon name="download" size={16} /> Baixar certificado</a></div></article></section>
 
     <section id="contato" className="contact"><p className="eyebrow">06 / CONTATO</p><h2>Tem uma ideia em mente?<br /><em>Vamos conversar.</em></h2><a className="contact-email" href="mailto:rodxlr@gmail.com">rodxlr@gmail.com <Icon name="arrow" size={26} /></a></section>
 
     <footer><a className="brand" href="#inicio">R<span>.</span></a><p>Desenvolvido por Rodrigo Mayer Alves · {new Date().getFullYear()}</p><div><a href="https://github.com/RodrigoMA21" target="_blank" rel="noreferrer" aria-label="GitHub"><Icon name="github" /></a><a href="https://www.linkedin.com/in/rodrigo-mayer-alves-a9255675" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a><a href="mailto:rodxlr@gmail.com" aria-label="E-mail"><Icon name="mail" /></a></div></footer>
+    <button className={`back-to-top ${showBackToTop ? 'visible' : ''}`} type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Voltar ao topo"><Icon name="up" size={20} /></button>
   </main>
 }
 
