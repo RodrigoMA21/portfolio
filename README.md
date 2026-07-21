@@ -1,41 +1,87 @@
-# Portfólio — Rodrigo Mayer Alves
+# 💼 Portfólio - Rodrigo Mayer Alves
 
-Portfólio pessoal desenvolvido para apresentar projetos, tecnologias e trajetória
-como desenvolvedor Full Stack.
+Meu portfólio pessoal desenvolvido para apresentar minha trajetória, habilidades técnicas e principais projetos.
 
-## Demonstração
+## 🔗 Acesse
 
-Execute localmente com `npm run dev` e acesse o endereço exibido pelo Vite.
+🌐 Site: https://rodrigomayer.vercel.app/
 
-## Tecnologias
+## 🚀 Tecnologias
 
-- React 19
+- React
 - Vite
+- JavaScript
 - Tailwind CSS
-- CSS responsivo
-- ESLint
+- Framer Motion
+- React Icons
 
-## Projetos em destaque
+## ✨ Funcionalidades
 
-- [Sistema de Biblioteca](https://github.com/RodrigoMA21/biblioteca-java-react)
-- [BarberFlow](https://github.com/RodrigoMA21/barberflow)
-- [Bot de Vagas no WhatsApp](https://github.com/RodrigoMA21/job-whatsapp-bot)
+- Apresentação profissional
+- Sobre mim
+- Competências técnicas
+- Projetos
+- Experiência
+- Certificados
+- Contato
+- Layout responsivo
 
-## Como executar
+## 📂 Projetos em destaque
+
+### 📚 Biblioteca Java + React
+
+Sistema Full Stack desenvolvido com Java, Spring Boot, React e PostgreSQL.
+
+### 💈 BarberFlow
+
+Sistema para gerenciamento de barbearias.
+
+### 🧪 Playwright
+
+Exemplos de testes automatizados utilizando Playwright.
+
+## 💻 Executando localmente
+
+Clone o projeto
+
+```bash
+git clone https://github.com/RodrigoMA21/portfolio.git
+```
+
+Entre na pasta
+
+```bash
+cd portfolio
+```
+
+Instale as dependências
 
 ```bash
 npm install
+```
+
+Execute
+
+```bash
 npm run dev
 ```
 
-Para gerar a versão de produção:
+## 📦 Build
 
 ```bash
 npm run build
 ```
 
-## Contato
+## 👨‍💻 Autor
 
-- [GitHub](https://github.com/RodrigoMA21)
-- [LinkedIn](https://www.linkedin.com/in/rodrigo-mayer-alves-a9255675)
-- E-mail: rodxlr@gmail.com
+Rodrigo Mayer Alves
+
+GitHub:
+https://github.com/RodrigoMA21
+
+LinkedIn:
+(coloque seu LinkedIn)
+
+---
+
+Desenvolvido utilizando React + Vite.
