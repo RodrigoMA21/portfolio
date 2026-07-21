@@ -80,7 +80,7 @@ GitHub:
 https://github.com/RodrigoMA21
 
 LinkedIn:
-(coloque seu LinkedIn)
+www.linkedin.com/in/rodrigo-mayer-alves-a9255675
 
 ---
 
