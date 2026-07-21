@@ -1,0 +1,6 @@
+RODRIGO — DESENVOLVEDOR FULL STACK
+
+Este é um currículo-base para ser atualizado com suas informações de contato,
+experiência profissional, formação, links de projetos e certificações.
+
+Tecnologias: React, JavaScript, Node.js, SQL, Git e Playwright.

@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@font-face { font-family: 'Portfolio Sans'; src: local('Inter'), local('Segoe UI'); }
+
+:root { font-family: 'Portfolio Sans', Arial, sans-serif; color: #e8eef9; background: #0f172a; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #0f172a; }
+a { color: inherit; }
