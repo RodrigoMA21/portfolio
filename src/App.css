@@ -439,6 +439,7 @@ em {
   gap: 3rem;
   align-items: center;
   background: linear-gradient(100deg, rgba(30, 64, 175, 0.2), transparent);
+  padding: 3rem 2rem;
 }
 .certificate > div {
   max-width: 560px;
