@@ -1,12 +1,18 @@
 # 💼 Portfólio - Rodrigo Mayer Alves
 
-Meu portfólio pessoal desenvolvido para apresentar minha trajetória, habilidades técnicas e principais projetos.
+Meu portfólio pessoal desenvolvido com React e Vite para apresentar minha trajetória, habilidades técnicas, experiências e principais projetos.
 
-## 🔗 Acesse
+## 🌐 Acesse
 
-🌐 Site: https://rodrigomayer.vercel.app/
+**Portfólio:** https://rodrigomayer.vercel.app/
+
+**LinkedIn:** https://www.linkedin.com/in/rodrigo-mayer-alves-a9255675
+
+---
 
 ## 🚀 Tecnologias
+
+### Front-end
 
 - React
 - Vite
@@ -15,32 +21,54 @@ Meu portfólio pessoal desenvolvido para apresentar minha trajetória, habilidad
 - Framer Motion
 - React Icons
 
+### Ferramentas
+
+- Git
+- GitHub
+- VS Code
+
+### Deploy
+
+- Vercel
+
+---
+
 ## ✨ Funcionalidades
 
-- Apresentação profissional
+- Página inicial moderna
 - Sobre mim
 - Competências técnicas
 - Projetos
-- Experiência
+- Experiência profissional
 - Certificados
 - Contato
 - Layout responsivo
+- Animações suaves
 
-## 📂 Projetos em destaque
+---
 
-### 📚 Biblioteca Java + React
+## 📂 Estrutura do projeto
 
-Sistema Full Stack desenvolvido com Java, Spring Boot, React e PostgreSQL.
+```text
+portfolio
+│
+├── docs
+├── public
+├── src
+│   ├── assets
+│   ├── components
+│   ├── pages
+│   ├── styles
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+└── README.md
+```
 
-### 💈 BarberFlow
+---
 
-Sistema para gerenciamento de barbearias.
-
-### 🧪 Playwright
-
-Exemplos de testes automatizados utilizando Playwright.
-
-## 💻 Executando localmente
+## 💻 Como executar
 
 Clone o projeto
 
@@ -66,22 +94,44 @@ Execute
 npm run dev
 ```
 
-## 📦 Build
+---
+
+## 📦 Build para produção
 
 ```bash
 npm run build
 ```
 
-## 👨‍💻 Autor
+Visualizar a versão de produção localmente
 
-Rodrigo Mayer Alves
-
-GitHub:
-https://github.com/RodrigoMA21
-
-LinkedIn:
-www.linkedin.com/in/rodrigo-mayer-alves-a9255675
+```bash
+npm run preview
+```
 
 ---
 
-Desenvolvido utilizando React + Vite.
+## 📌 Projetos apresentados
+
+- 📚 Biblioteca Java + React
+- 💈 BarberFlow
+- 🧪 Testes Automatizados com Playwright
+
+---
+
+## 🎯 Próximas melhorias
+
+- [ ] Adicionar versão em inglês
+- [ ] Melhorar SEO
+- [ ] Adicionar novos projetos
+- [ ] Melhorar acessibilidade
+- [ ] Implementar modo claro
+
+---
+
+## 👨‍💻 Autor
+
+**Rodrigo Mayer Alves**
+
+- GitHub: https://github.com/RodrigoMA21
+- LinkedIn: https://www.linkedin.com/in/rodrigo-mayer-alves-a9255675
+- Portfólio: https://rodrigomayer.vercel.app/
