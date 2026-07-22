@@ -128,18 +128,12 @@ function Icon({ name, size = 20 }) {
 
 function BooksIll() {
   return (
-    <svg viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M24 6v28M6 10l18-4v28L6 38V10z" stroke="currentColor" strokeWidth="0.8" opacity="0.35" fill="currentColor" fillOpacity="0.04" />
-      <path d="M42 10l-18-4v28l18 4V10z" stroke="currentColor" strokeWidth="0.8" opacity="0.35" fill="currentColor" fillOpacity="0.04" />
-      <line x1="24" y1="6" x2="24" y2="34" stroke="currentColor" strokeWidth="1.1" opacity="0.4" />
-      <line x1="11" y1="15" x2="20" y2="12" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
-      <line x1="11" y1="20" x2="20" y2="17" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
-      <line x1="11" y1="25" x2="20" y2="22" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
-      <line x1="28" y1="12" x2="37" y2="15" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
-      <line x1="28" y1="17" x2="37" y2="20" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
-      <line x1="28" y1="22" x2="37" y2="25" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
-      <path d="M20 10l4-4 4 4" stroke="currentColor" strokeWidth="0.7" opacity="0.25" fill="none" />
-      <path d="M20 11l4-4 4 4" stroke="currentColor" strokeWidth="0.3" opacity="0.1" fill="none" />
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 6H2v14a2 2 0 0 0 2 2h14v-2H4V6zm16-4H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"
+        fill="currentColor" opacity="0.04" stroke="currentColor" strokeWidth="0.65" opacity="0.35" strokeLinejoin="round" />
+      <rect x="9" y="5" width="10" height="2" rx="0.4" fill="currentColor" opacity="0.15" />
+      <rect x="9" y="9" width="10" height="2" rx="0.4" fill="currentColor" opacity="0.15" />
+      <rect x="9" y="13" width="6" height="2" rx="0.4" fill="currentColor" opacity="0.15" />
     </svg>
   );
 }
