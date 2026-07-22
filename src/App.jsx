@@ -128,24 +128,18 @@ function Icon({ name, size = 20 }) {
 
 function BooksIll() {
   return (
-    <svg viewBox="0 0 48 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="22" width="44" height="10" rx="0.5" fill="currentColor" opacity="0.04" />
-      <rect x="2" y="22" width="44" height="10" rx="0.5" stroke="currentColor" strokeWidth="0.6" opacity="0.3" />
-      <line x1="2" y1="22" x2="2" y2="32" stroke="currentColor" strokeWidth="0.8" opacity="0.35" />
-      <line x1="45" y1="23" x2="45" y2="31" stroke="currentColor" strokeWidth="0.3" opacity="0.1" />
-      <line x1="44" y1="23" x2="44" y2="31" stroke="currentColor" strokeWidth="0.3" opacity="0.08" />
-      <rect x="4" y="11" width="40" height="10" rx="0.5" fill="currentColor" opacity="0.04" />
-      <rect x="4" y="11" width="40" height="10" rx="0.5" stroke="currentColor" strokeWidth="0.6" opacity="0.3" />
-      <line x1="4" y1="11" x2="4" y2="21" stroke="currentColor" strokeWidth="0.8" opacity="0.35" />
-      <line x1="43" y1="12" x2="43" y2="20" stroke="currentColor" strokeWidth="0.3" opacity="0.1" />
-      <line x1="42" y1="12" x2="42" y2="20" stroke="currentColor" strokeWidth="0.3" opacity="0.08" />
-      <rect x="6" y="0" width="36" height="10" rx="0.5" fill="currentColor" opacity="0.04" />
-      <rect x="6" y="0" width="36" height="10" rx="0.5" stroke="currentColor" strokeWidth="0.6" opacity="0.3" />
-      <line x1="6" y1="0" x2="6" y2="10" stroke="currentColor" strokeWidth="0.8" opacity="0.35" />
-      <line x1="41" y1="1" x2="41" y2="9" stroke="currentColor" strokeWidth="0.3" opacity="0.1" />
-      <line x1="40" y1="1" x2="40" y2="9" stroke="currentColor" strokeWidth="0.3" opacity="0.08" />
-      <path d="M 22 11 L 26 11 L 24 18 Z" fill="currentColor" opacity="0.2" />
-      <path d="M 22 11 L 26 11 L 24 18 Z" stroke="currentColor" strokeWidth="0.4" opacity="0.3" />
+    <svg viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 6v28M6 10l18-4v28L6 38V10z" stroke="currentColor" strokeWidth="0.8" opacity="0.35" fill="currentColor" fillOpacity="0.04" />
+      <path d="M42 10l-18-4v28l18 4V10z" stroke="currentColor" strokeWidth="0.8" opacity="0.35" fill="currentColor" fillOpacity="0.04" />
+      <line x1="24" y1="6" x2="24" y2="34" stroke="currentColor" strokeWidth="1.1" opacity="0.4" />
+      <line x1="11" y1="15" x2="20" y2="12" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
+      <line x1="11" y1="20" x2="20" y2="17" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
+      <line x1="11" y1="25" x2="20" y2="22" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
+      <line x1="28" y1="12" x2="37" y2="15" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
+      <line x1="28" y1="17" x2="37" y2="20" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
+      <line x1="28" y1="22" x2="37" y2="25" stroke="currentColor" strokeWidth="0.6" opacity="0.15" />
+      <path d="M20 10l4-4 4 4" stroke="currentColor" strokeWidth="0.7" opacity="0.25" fill="none" />
+      <path d="M20 11l4-4 4 4" stroke="currentColor" strokeWidth="0.3" opacity="0.1" fill="none" />
     </svg>
   );
 }
