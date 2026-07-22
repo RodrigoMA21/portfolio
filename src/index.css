@@ -2,8 +2,109 @@
 
 @font-face { font-family: 'Portfolio Sans'; src: local('Inter'), local('Segoe UI'); }
 
-:root { font-family: 'Portfolio Sans', Arial, sans-serif; color: #e8eef9; background: #0f172a; font-synthesis: none; text-rendering: optimizeLegibility; }
+:root {
+  font-family: 'Portfolio Sans', Arial, sans-serif;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --bg-primary: #0f172a;
+  --bg-surface: #131e34;
+  --bg-card: #131e34;
+  --text-primary: #f8fafc;
+  --text-secondary: #e8eef9;
+  --text-muted: #aab8d0;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: #60a5fa;
+  --border: rgba(148, 163, 184, 0.18);
+  --border-light: rgba(148, 163, 184, 0.1);
+  --section-divider: rgba(148, 163, 184, 0.15);
+  --blueprint-grid: rgba(59, 130, 246, 0.04);
+  --blueprint-line: rgba(59, 130, 246, 0.08);
+  --glow: rgba(59, 130, 246, 0.24);
+  --orb-one: rgba(59, 130, 246, 0.32);
+  --orb-two: rgba(129, 140, 248, 0.18);
+  --card-border-hover: #3b82f6;
+
+  --char-skin: #e8b88a;
+  --char-hair: #3a2a1a;
+  --char-hoodie: #6366f1;
+  --char-backpack: #334155;
+  --char-pants: #475569;
+  --char-shoe: #0f172a;
+  --char-laptop: #64748b;
+  --char-detail: #94a3b8;
+
+  --astro-visor: #f59e0b;
+  --astro-visor-light: #fbbf24;
+  --astro-suit: #e2e8f0;
+  --astro-suit-dark: #94a3b8;
+  --astro-accent: #818cf8;
+  --astro-detail: #475569;
+  --astro-star: #fbbf24;
+
+  --rocket-nose: #ef4444;
+  --rocket-body: #e2e8f0;
+  --rocket-stripe: #3b82f6;
+  --rocket-window: #60a5fa;
+  --rocket-fin: #ef4444;
+  --rocket-nozzle: #334155;
+  --rocket-flame-outer: #ef4444;
+  --rocket-flame-mid: #f97316;
+  --rocket-flame-inner: #fbbf24;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f0f4f8;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #3b82f6;
+  --border: rgba(30, 64, 175, 0.12);
+  --border-light: rgba(30, 64, 175, 0.06);
+  --section-divider: rgba(30, 64, 175, 0.08);
+  --blueprint-grid: rgba(37, 99, 235, 0.03);
+  --blueprint-line: rgba(37, 99, 235, 0.06);
+  --glow: rgba(37, 99, 235, 0.08);
+  --orb-one: rgba(37, 99, 235, 0.12);
+  --orb-two: rgba(99, 102, 241, 0.08);
+  --card-border-hover: #2563eb;
+
+  --char-skin: #f5d0b0;
+  --char-hair: #5c3d2e;
+  --char-hoodie: #4f46e5;
+  --char-backpack: #64748b;
+  --char-pants: #64748b;
+  --char-shoe: #1e293b;
+  --char-laptop: #94a3b8;
+  --char-detail: #cbd5e1;
+
+  --astro-visor: #d97706;
+  --astro-visor-light: #f59e0b;
+  --astro-suit: #cbd5e1;
+  --astro-suit-dark: #64748b;
+  --astro-accent: #6366f1;
+  --astro-detail: #334155;
+  --astro-star: #d97706;
+
+  --rocket-nose: #dc2626;
+  --rocket-body: #cbd5e1;
+  --rocket-stripe: #2563eb;
+  --rocket-window: #3b82f6;
+  --rocket-fin: #dc2626;
+  --rocket-nozzle: #475569;
+  --rocket-flame-outer: #dc2626;
+  --rocket-flame-mid: #ea580c;
+  --rocket-flame-inner: #d97706;
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: #0f172a; }
+body { margin: 0; min-width: 320px; background: var(--bg-primary); }
 a { color: inherit; }
