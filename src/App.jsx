@@ -38,11 +38,13 @@ const projects = [
     code: "https://github.com/RodrigoMA21/job-whatsapp-bot",
   },
   {
-    title: "JobFinder (Em produção)",
+    title: "JobFinder",
     type: "Aplicação web",
     description:
-      "Plataforma web para busca e candidatura a vagas de emprego, com filtros inteligentes e notificações em tempo real.",
-    tags: ["React", "Node.js", "MongoDB", "TypeScript"],
+      "Plataforma de busca de vagas de tecnologia no Brasil, com dados coletados de múltiplas APIs e filtros avançados.",
+    tags: ["Python", "FastAPI", "React", "TypeScript"],
+    code: "https://github.com/RodrigoMA21/JobFinder",
+    demo: "https://job-finder-seven-rust.vercel.app/",
   },
 ];
 
