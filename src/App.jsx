@@ -43,8 +43,6 @@ const projects = [
     description:
       "Plataforma web para busca e candidatura a vagas de emprego, com filtros inteligentes e notificações em tempo real.",
     tags: ["React", "Node.js", "MongoDB", "TypeScript"],
-    code: "https://github.com/RodrigoMA21/jobfinder",
-    demo: "https://jobfinder.example.com/",
   },
 ];
 
@@ -433,14 +431,16 @@ function App() {
                   ))}
                 </ul>
                 <div className="project-links">
-                  <a
-                    href={project.code}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Abrir código do projeto ${project.title}`}
-                  >
-                    Código <Icon name="github" size={17} />
-                  </a>
+                  {project.code && (
+                    <a
+                      href={project.code}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Abrir código do projeto ${project.title}`}
+                    >
+                      Código <Icon name="github" size={17} />
+                    </a>
+                  )}
                   {project.demo && (
                     <a
                       href={project.demo}

@@ -440,10 +440,14 @@ em {
 .project-links a:hover {
   color: #60a5fa;
 }
+.projects-section {
+  padding-bottom: 0;
+}
 .projects-footer {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
 }
 .experience {
   display: grid;
