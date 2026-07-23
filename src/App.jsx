@@ -22,7 +22,7 @@ const projects = [
     demo: "https://biblioteca-java-react-1.onrender.com/",
   },
   {
-    title: "BarberFlow",
+    title: "BarberFlow (Em produção)",
     type: "Aplicação web",
     description:
       "Projeto de aplicação web para o contexto de barbearias, desenvolvido em JavaScript e estruturado como um produto em evolução.",
@@ -36,6 +36,15 @@ const projects = [
       "Automação que pesquisa vagas por API, processa os resultados e envia notificações formatadas diretamente pelo WhatsApp.",
     tags: ["Make", "RapidAPI", "Twilio", "WhatsApp"],
     code: "https://github.com/RodrigoMA21/job-whatsapp-bot",
+  },
+  {
+    title: "JobFinder (Em produção)",
+    type: "Aplicação web",
+    description:
+      "Plataforma web para busca e candidatura a vagas de emprego, com filtros inteligentes e notificações em tempo real.",
+    tags: ["React", "Node.js", "MongoDB", "TypeScript"],
+    code: "https://github.com/RodrigoMA21/jobfinder",
+    demo: "https://jobfinder.example.com/",
   },
 ];
 
@@ -170,6 +179,19 @@ function RobotIll() {
       <rect x="4" y="14" width="4" height="10" rx="1" stroke="currentColor" strokeWidth="0.6" opacity="0.2" />
       <rect x="32" y="14" width="4" height="10" rx="1" fill="currentColor" opacity="0.06" />
       <rect x="32" y="14" width="4" height="10" rx="1" stroke="currentColor" strokeWidth="0.6" opacity="0.2" />
+    </svg>
+  );
+}
+
+function SearchIll() {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="10" stroke="currentColor" strokeWidth="1.2" opacity="0.35" fill="none" />
+      <circle cx="18" cy="18" r="5" fill="currentColor" opacity="0.08" />
+      <circle cx="18" cy="18" r="2.5" fill="currentColor" opacity="0.2" />
+      <line x1="25" y1="25" x2="34" y2="34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
+      <rect x="14" y="13" width="8" height="2" rx="1" fill="currentColor" opacity="0.15" />
+      <rect x="14" y="17" width="6" height="2" rx="1" fill="currentColor" opacity="0.15" />
     </svg>
   );
 }
@@ -398,6 +420,7 @@ function App() {
                   {index === 0 && <BooksIll />}
                   {index === 1 && <ScissorsIll />}
                   {index === 2 && <RobotIll />}
+                  {index === 3 && <SearchIll />}
                 </div>
               </div>
               <div className="project-content">
@@ -432,6 +455,17 @@ function App() {
               </div>
             </article>
           ))}
+        </div>
+        <div className="projects-footer">
+          <a
+            className="button ghost"
+            href="https://github.com/RodrigoMA21"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Confira mais projetos no GitHub"
+          >
+            <Icon name="github" size={18} /> Confira mais projetos em meu GitHub
+          </a>
         </div>
       </section>
 

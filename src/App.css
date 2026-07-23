@@ -386,6 +386,9 @@ em {
 .art-3 {
   background: linear-gradient(135deg, #312e81, #1e1b4b);
 }
+.art-4 {
+  background: linear-gradient(135deg, #065f46, #064e3b);
+}
 .project-content {
   padding: 1.5rem;
 }
@@ -436,6 +439,11 @@ em {
 }
 .project-links a:hover {
   color: #60a5fa;
+}
+.projects-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
 }
 .experience {
   display: grid;
@@ -1230,6 +1238,9 @@ main::before {
 }
 [data-theme="light"] .art-3 {
   background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+}
+[data-theme="light"] .art-4 {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
 }
 
 [data-theme="light"] .project-content > p:not(.project-type) {
