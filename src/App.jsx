@@ -22,7 +22,7 @@ const projects = [
     demo: "https://biblioteca-java-react-1.onrender.com/",
   },
   {
-    title: "BarberFlow (Em produção)",
+    title: "BarberFlow (Em desenvolvimento)",
     type: "Aplicação web",
     description:
       "Projeto de aplicação web para o contexto de barbearias, desenvolvido em JavaScript e estruturado como um produto em evolução.",
@@ -112,9 +112,7 @@ function Icon({ name, size = 20 }) {
         <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
       </>
     ),
-    moon: (
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    ),
+    moon: <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />,
   };
   return (
     <svg
@@ -136,8 +134,15 @@ function Icon({ name, size = 20 }) {
 function BooksIll() {
   return (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="m19 1-5 5v11l5-4.5zM1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6m22 13.5V6c-.6-.45-1.25-.75-2-1v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5v2c1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5z"
-        fill="currentColor" opacity="0.08" stroke="currentColor" strokeWidth="0.6" opacity="0.3" strokeLinejoin="round" />
+      <path
+        d="m19 1-5 5v11l5-4.5zM1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6m22 13.5V6c-.6-.45-1.25-.75-2-1v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5v2c1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5z"
+        fill="currentColor"
+        opacity="0.08"
+        stroke="currentColor"
+        strokeWidth="0.6"
+        opacity="0.3"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -145,17 +150,87 @@ function BooksIll() {
 function ScissorsIll() {
   return (
     <svg viewBox="0 0 40 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="12" cy="10" rx="4.5" ry="6" stroke="currentColor" strokeWidth="0.7" opacity="0.35" fill="none" />
-      <ellipse cx="28" cy="10" rx="4.5" ry="6" stroke="currentColor" strokeWidth="0.7" opacity="0.35" fill="none" />
-      <ellipse cx="12" cy="10" rx="2" ry="3" fill="currentColor" opacity="0.04" />
-      <ellipse cx="28" cy="10" rx="2" ry="3" fill="currentColor" opacity="0.04" />
-      <path d="M 15.5 15 L 20 20" stroke="currentColor" strokeWidth="0.7" opacity="0.3" />
-      <path d="M 24.5 15 L 20 20" stroke="currentColor" strokeWidth="0.7" opacity="0.3" />
-      <path d="M 20 20 L 6 40" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" opacity="0.45" />
-      <path d="M 20 20 L 34 40" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" opacity="0.45" />
-      <circle cx="20" cy="20" r="2.5" stroke="currentColor" strokeWidth="0.7" opacity="0.4" fill="none" />
+      <ellipse
+        cx="12"
+        cy="10"
+        rx="4.5"
+        ry="6"
+        stroke="currentColor"
+        strokeWidth="0.7"
+        opacity="0.35"
+        fill="none"
+      />
+      <ellipse
+        cx="28"
+        cy="10"
+        rx="4.5"
+        ry="6"
+        stroke="currentColor"
+        strokeWidth="0.7"
+        opacity="0.35"
+        fill="none"
+      />
+      <ellipse
+        cx="12"
+        cy="10"
+        rx="2"
+        ry="3"
+        fill="currentColor"
+        opacity="0.04"
+      />
+      <ellipse
+        cx="28"
+        cy="10"
+        rx="2"
+        ry="3"
+        fill="currentColor"
+        opacity="0.04"
+      />
+      <path
+        d="M 15.5 15 L 20 20"
+        stroke="currentColor"
+        strokeWidth="0.7"
+        opacity="0.3"
+      />
+      <path
+        d="M 24.5 15 L 20 20"
+        stroke="currentColor"
+        strokeWidth="0.7"
+        opacity="0.3"
+      />
+      <path
+        d="M 20 20 L 6 40"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+      <path
+        d="M 20 20 L 34 40"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+      <circle
+        cx="20"
+        cy="20"
+        r="2.5"
+        stroke="currentColor"
+        strokeWidth="0.7"
+        opacity="0.4"
+        fill="none"
+      />
       <circle cx="20" cy="20" r="0.9" fill="currentColor" opacity="0.3" />
-      <line x1="18" y1="20" x2="22" y2="20" stroke="currentColor" strokeWidth="0.4" opacity="0.2" />
+      <line
+        x1="18"
+        y1="20"
+        x2="22"
+        y2="20"
+        stroke="currentColor"
+        strokeWidth="0.4"
+        opacity="0.2"
+      />
     </svg>
   );
 }
@@ -163,20 +238,87 @@ function ScissorsIll() {
 function RobotIll() {
   return (
     <svg viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="10" width="24" height="20" rx="4" fill="currentColor" opacity="0.06" />
-      <rect x="8" y="10" width="24" height="20" rx="4" stroke="currentColor" strokeWidth="0.8" opacity="0.35" />
+      <rect
+        x="8"
+        y="10"
+        width="24"
+        height="20"
+        rx="4"
+        fill="currentColor"
+        opacity="0.06"
+      />
+      <rect
+        x="8"
+        y="10"
+        width="24"
+        height="20"
+        rx="4"
+        stroke="currentColor"
+        strokeWidth="0.8"
+        opacity="0.35"
+      />
       <circle cx="16" cy="20" r="4" fill="currentColor" opacity="0.12" />
       <circle cx="16" cy="20" r="2.5" fill="currentColor" opacity="0.35" />
       <circle cx="24" cy="20" r="4" fill="currentColor" opacity="0.12" />
       <circle cx="24" cy="20" r="2.5" fill="currentColor" opacity="0.35" />
-      <rect x="17" y="27" width="6" height="2" rx="0.5" fill="currentColor" opacity="0.2" />
-      <line x1="20" y1="4" x2="20" y2="10" stroke="currentColor" strokeWidth="0.8" opacity="0.25" />
+      <rect
+        x="17"
+        y="27"
+        width="6"
+        height="2"
+        rx="0.5"
+        fill="currentColor"
+        opacity="0.2"
+      />
+      <line
+        x1="20"
+        y1="4"
+        x2="20"
+        y2="10"
+        stroke="currentColor"
+        strokeWidth="0.8"
+        opacity="0.25"
+      />
       <circle cx="20" cy="3.5" r="2" fill="currentColor" opacity="0.2" />
       <circle cx="20" cy="3.5" r="1" fill="currentColor" opacity="0.4" />
-      <rect x="4" y="14" width="4" height="10" rx="1" fill="currentColor" opacity="0.06" />
-      <rect x="4" y="14" width="4" height="10" rx="1" stroke="currentColor" strokeWidth="0.6" opacity="0.2" />
-      <rect x="32" y="14" width="4" height="10" rx="1" fill="currentColor" opacity="0.06" />
-      <rect x="32" y="14" width="4" height="10" rx="1" stroke="currentColor" strokeWidth="0.6" opacity="0.2" />
+      <rect
+        x="4"
+        y="14"
+        width="4"
+        height="10"
+        rx="1"
+        fill="currentColor"
+        opacity="0.06"
+      />
+      <rect
+        x="4"
+        y="14"
+        width="4"
+        height="10"
+        rx="1"
+        stroke="currentColor"
+        strokeWidth="0.6"
+        opacity="0.2"
+      />
+      <rect
+        x="32"
+        y="14"
+        width="4"
+        height="10"
+        rx="1"
+        fill="currentColor"
+        opacity="0.06"
+      />
+      <rect
+        x="32"
+        y="14"
+        width="4"
+        height="10"
+        rx="1"
+        stroke="currentColor"
+        strokeWidth="0.6"
+        opacity="0.2"
+      />
     </svg>
   );
 }
@@ -184,12 +326,45 @@ function RobotIll() {
 function SearchIll() {
   return (
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="18" r="10" stroke="currentColor" strokeWidth="1.2" opacity="0.35" fill="none" />
+      <circle
+        cx="18"
+        cy="18"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        opacity="0.35"
+        fill="none"
+      />
       <circle cx="18" cy="18" r="5" fill="currentColor" opacity="0.08" />
       <circle cx="18" cy="18" r="2.5" fill="currentColor" opacity="0.2" />
-      <line x1="25" y1="25" x2="34" y2="34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
-      <rect x="14" y="13" width="8" height="2" rx="1" fill="currentColor" opacity="0.15" />
-      <rect x="14" y="17" width="6" height="2" rx="1" fill="currentColor" opacity="0.15" />
+      <line
+        x1="25"
+        y1="25"
+        x2="34"
+        y2="34"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.4"
+      />
+      <rect
+        x="14"
+        y="13"
+        width="8"
+        height="2"
+        rx="1"
+        fill="currentColor"
+        opacity="0.15"
+      />
+      <rect
+        x="14"
+        y="17"
+        width="6"
+        height="2"
+        rx="1"
+        fill="currentColor"
+        opacity="0.15"
+      />
     </svg>
   );
 }
@@ -208,32 +383,34 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const closeMenu = () => setMenuOpen(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "dark",
+  );
   const toggleTheme = () => {
-    setTheme(prev => {
-      const next = prev === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', next);
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", next);
       return next;
     });
   };
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add("revealed");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
     );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -243,16 +420,22 @@ function App() {
       if (!ticking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY;
-          const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-          document.documentElement.style.setProperty('--scroll-y', scrollY);
-          document.documentElement.style.setProperty('--scroll-pct', scrollY / maxScroll);
+          const maxScroll = Math.max(
+            document.documentElement.scrollHeight - window.innerHeight,
+            1,
+          );
+          document.documentElement.style.setProperty("--scroll-y", scrollY);
+          document.documentElement.style.setProperty(
+            "--scroll-pct",
+            scrollY / maxScroll,
+          );
           ticking = false;
         });
         ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -267,9 +450,11 @@ function App() {
       <button
         className="theme-toggle"
         onClick={toggleTheme}
-        aria-label={theme === 'dark' ? 'Ativar modo claro' : 'Ativar modo escuro'}
+        aria-label={
+          theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"
+        }
       >
-        <Icon name={theme === 'dark' ? 'moon' : 'sun'} size={20} />
+        <Icon name={theme === "dark" ? "moon" : "sun"} size={20} />
       </button>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Início">
@@ -564,7 +749,12 @@ function App() {
           rel="noreferrer"
           aria-label="Fale comigo pelo WhatsApp"
         >
-          <img src="/WhatsApp_Logo_PNG_Sem_Fundo_Transparente.png" alt="WhatsApp" className="whatsapp-icon" /> WhatsApp
+          <img
+            src="/WhatsApp_Logo_PNG_Sem_Fundo_Transparente.png"
+            alt="WhatsApp"
+            className="whatsapp-icon"
+          />{" "}
+          WhatsApp
         </a>
       </section>
 
