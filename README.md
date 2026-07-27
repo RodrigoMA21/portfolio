@@ -45,6 +45,7 @@ Além de funcionar como um cartão de visitas profissional, este projeto também
 - Layout responsivo
 - Animações suaves
 - Interface moderna
+- 🌍 Internacionalização (Português, Inglês, Espanhol)
 
 ---
 
@@ -143,6 +144,18 @@ npm run preview
 - Demonstrar minhas habilidades em React.
 - Disponibilizar formas de contato para recrutadores.
 - Servir como ponto central do meu portfólio profissional.
+
+---
+
+# 🌍 Internacionalização
+
+O portfólio possui suporte aos idiomas:
+
+- 🇧🇷 **Português** (padrão)
+- 🇺🇸 **Inglês**
+- 🇪🇸 **Espanhol**
+
+A alternância entre idiomas é feita através dos botões **PT / EN / ES** no cabeçalho do site. O idioma selecionado é salvo no navegador e mantido entre sessões.
 
 ---
 

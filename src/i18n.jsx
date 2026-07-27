@@ -363,14 +363,15 @@ export function I18nProvider({ children }) {
     document.title = titles[locale];
   }, [locale]);
 
+  const current = translations[locale] || translations['pt-BR'];
   const t = (key) => {
     const keys = key.split('.');
-    let value = translations[locale];
+    let value = current;
     for (const k of keys) {
       if (value == null) return key;
       value = value[k];
     }
-    return value;
+    return value ?? key;
   };
 
   return (
