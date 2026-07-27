@@ -1,0 +1,387 @@
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useState, useEffect } from 'react';
+
+const translations = {
+  'pt-BR': {
+    'themeToggle.light': 'Ativar modo claro',
+    'themeToggle.dark': 'Ativar modo escuro',
+    'header.menuLabel': 'Abrir menu',
+    'header.brandLabel': 'Início',
+    'header.navLabel': 'Navegação principal',
+    'header.cta': 'Vamos conversar',
+    'hero.eyebrow': 'Disponível para novos desafios',
+    'hero.greeting': 'Olá, eu sou',
+    'hero.description': 'Desenvolvedor Full Stack com foco em Java, React e Spring Boot, criando aplicações web modernas, escaláveis e intuitivas.',
+    'hero.cta.work': 'Conheça meu trabalho',
+    'hero.cta.resume': 'Baixar currículo',
+    'hero.card.role1': 'Full Stack',
+    'hero.card.role2': 'Developer',
+    'hero.card.availability': 'Disponível para oportunidades',
+    'hero.card.ariaLabel': 'Perfil profissional',
+    'hero.imgAlt': 'Rodrigo Mayer Alves',
+    'about.eyebrow': '01 / SOBRE MIM',
+    'about.title': 'Tecnologia com olhar para pessoas.',
+    'about.p1': 'Gosto de transformar problemas reais em soluções simples, bonitas e úteis. Trabalho do planejamento à entrega, unindo código limpo, atenção aos detalhes e uma boa experiência para quem usa o produto.',
+    'about.p2': 'Minha jornada é guiada por curiosidade e evolução contínua — sempre explorando ferramentas, padrões e ideias que tornam a web melhor.',
+    'about.cta': 'Vamos criar algo juntos',
+    'tech.eyebrow': '02 / TECNOLOGIAS',
+    'tech.title': 'Ferramentas que dão vida às ideias.',
+    'tech.text': 'Tecnologias que utilizo no desenvolvimento de APIs, aplicações web e experiências digitais.',
+    'tech.imgAlt': 'Ícone {tech}',
+    'projects.eyebrow': '03 / PROJETOS',
+    'projects.title': 'Seleção de trabalhos.',
+    'projects.text': 'Projetos que refletem estudo, prática e vontade de resolver problemas de verdade.',
+    'projects.code': 'Código',
+    'projects.view': 'Ver projeto',
+    'projects.footer': 'Confira mais projetos em meu GitHub',
+    'projects.footerAria': 'Confira mais projetos no GitHub',
+    'projects.codeAria': 'Abrir código do projeto {name}',
+    'projects.demoAria': 'Abrir demonstração do projeto {name}',
+    'experience.eyebrow': '04 / TRAJETÓRIA',
+    'experience.title': 'Evoluir faz parte do processo.',
+    'certificates.eyebrow': '05 / CERTIFICADOS',
+    'certificates.title': 'Aprendizado que vira entrega.',
+    'certificates.text': 'Estudos em Java que fortalecem minha atuação no desenvolvimento de APIs, regras de negócio e aplicações Full Stack.',
+    'certificates.complement': 'FORMAÇÃO COMPLEMENTAR',
+    'certificates.certTitle': 'Certificado Java',
+    'certificates.certDesc': 'Fundamentos e desenvolvimento de aplicações com Java.',
+    'certificates.certAria': 'Certificado de Java',
+    'certificates.javaAlt': 'Símbolo Java',
+    'certificates.downloadCert': 'Baixar certificado',
+    'certificates.downloadResume': 'Baixar currículo',
+    'contact.eyebrow': '06 / CONTATO',
+    'contact.title1': 'Tem uma ideia em mente?',
+    'contact.title2': 'Vamos conversar.',
+    'contact.email': 'Email:',
+    'contact.whatsapp': 'WhatsApp',
+    'contact.whatsappAria': 'Fale comigo pelo WhatsApp',
+    'contact.whatsappImgAlt': 'WhatsApp',
+    'footer.text': 'Desenvolvido por Rodrigo Mayer Alves',
+    'aria.backToTop': 'Voltar ao topo',
+    navLinks: [
+      ['Sobre', 'sobre'],
+      ['Tecnologias', 'tecnologias'],
+      ['Projetos', 'projetos'],
+      ['Experiência', 'experiencia'],
+      ['Contato', 'contato'],
+    ],
+    projects: [
+      {
+        title: 'Sistema de Biblioteca',
+        type: 'Full Stack',
+        description: 'Sistema online de gestão de biblioteca, com autenticação, usuários, acervo, e-mails automáticos e visualização de livros em PDF.',
+        tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
+        code: 'https://github.com/RodrigoMA21/biblioteca-java-react',
+        demo: 'https://biblioteca-java-react-1.onrender.com/',
+      },
+      {
+        title: 'BarberFlow (Em desenvolvimento)',
+        type: 'Aplicação web',
+        description: 'Projeto de aplicação web para o contexto de barbearias, desenvolvido em JavaScript e estruturado como um produto em evolução.',
+        tags: ['JavaScript', 'Web App', 'GitHub'],
+        code: 'https://github.com/RodrigoMA21/barberflow',
+      },
+      {
+        title: 'Bot de Vagas no WhatsApp',
+        type: 'Automação',
+        description: 'Automação que pesquisa vagas por API, processa os resultados e envia notificações formatadas diretamente pelo WhatsApp.',
+        tags: ['Make', 'RapidAPI', 'Twilio', 'WhatsApp'],
+        code: 'https://github.com/RodrigoMA21/job-whatsapp-bot',
+      },
+      {
+        title: 'JobFinder',
+        type: 'Aplicação web',
+        description: 'Plataforma de busca de vagas de tecnologia no Brasil, com dados coletados de múltiplas APIs e filtros avançados.',
+        tags: ['Python', 'FastAPI', 'React', 'TypeScript'],
+        code: 'https://github.com/RodrigoMA21/JobFinder',
+        demo: 'https://job-finder-seven-rust.vercel.app/',
+      },
+    ],
+    timeline: [
+      {
+        label: 'Experiência',
+        title: 'Quality Assurance (QA)',
+        description: 'Atuação com qualidade de software, realizando testes, identificando falhas e contribuindo para experiências mais confiáveis para os usuários.',
+      },
+      {
+        label: 'Hoje',
+        title: 'Desenvolvedor Full Stack',
+        description: 'Construindo projetos pessoais e ampliando repertório em desenvolvimento web, automação e boas práticas de engenharia.',
+      },
+      {
+        label: 'Em evolução',
+        title: 'Estudos e especialização',
+        description: 'Aprofundando conhecimentos em React, Node.js, bancos de dados e testes automatizados.',
+      },
+    ],
+  },
+
+  'en': {
+    'themeToggle.light': 'Switch to light mode',
+    'themeToggle.dark': 'Switch to dark mode',
+    'header.menuLabel': 'Open menu',
+    'header.brandLabel': 'Home',
+    'header.navLabel': 'Main navigation',
+    'header.cta': "Let's talk",
+    'hero.eyebrow': 'Available for new challenges',
+    'hero.greeting': "Hello, I'm",
+    'hero.description': 'Full Stack Developer focused on Java, React and Spring Boot, creating modern, scalable and intuitive web applications.',
+    'hero.cta.work': 'See my work',
+    'hero.cta.resume': 'Download resume',
+    'hero.card.role1': 'Full Stack',
+    'hero.card.role2': 'Developer',
+    'hero.card.availability': 'Available for opportunities',
+    'hero.card.ariaLabel': 'Professional profile',
+    'hero.imgAlt': 'Rodrigo Mayer Alves',
+    'about.eyebrow': '01 / ABOUT ME',
+    'about.title': 'Technology with a people-first approach.',
+    'about.p1': "I enjoy turning real problems into simple, beautiful and useful solutions. I work from planning to delivery, combining clean code, attention to detail and a great user experience.",
+    'about.p2': 'My journey is guided by curiosity and continuous evolution — always exploring tools, patterns and ideas that make the web better.',
+    'about.cta': "Let's create something together",
+    'tech.eyebrow': '02 / TECHNOLOGIES',
+    'tech.title': 'Tools that bring ideas to life.',
+    'tech.text': 'Technologies I use to develop APIs, web applications and digital experiences.',
+    'tech.imgAlt': '{tech} icon',
+    'projects.eyebrow': '03 / PROJECTS',
+    'projects.title': 'Selection of work.',
+    'projects.text': 'Projects that reflect study, practice and a real desire to solve problems.',
+    'projects.code': 'Code',
+    'projects.view': 'View project',
+    'projects.footer': "Check out more projects on my GitHub",
+    'projects.footerAria': 'Check out more projects on GitHub',
+    'projects.codeAria': 'Open code for {name}',
+    'projects.demoAria': 'Open demo for {name}',
+    'experience.eyebrow': '04 / JOURNEY',
+    'experience.title': 'Evolving is part of the process.',
+    'certificates.eyebrow': '05 / CERTIFICATES',
+    'certificates.title': 'Learning that becomes delivery.',
+    'certificates.text': 'Java studies that strengthen my work in API development, business rules and Full Stack applications.',
+    'certificates.complement': 'ADDITIONAL EDUCATION',
+    'certificates.certTitle': 'Java Certificate',
+    'certificates.certDesc': 'Fundamentals and development of applications with Java.',
+    'certificates.certAria': 'Java Certificate',
+    'certificates.javaAlt': 'Java symbol',
+    'certificates.downloadCert': 'Download certificate',
+    'certificates.downloadResume': 'Download resume',
+    'contact.eyebrow': '06 / CONTACT',
+    'contact.title1': 'Got an idea in mind?',
+    'contact.title2': "Let's talk.",
+    'contact.email': 'Email:',
+    'contact.whatsapp': 'WhatsApp',
+    'contact.whatsappAria': 'Talk to me on WhatsApp',
+    'contact.whatsappImgAlt': 'WhatsApp',
+    'footer.text': 'Developed by Rodrigo Mayer Alves',
+    'aria.backToTop': 'Back to top',
+    navLinks: [
+      ['About', 'sobre'],
+      ['Technologies', 'tecnologias'],
+      ['Projects', 'projetos'],
+      ['Experience', 'experiencia'],
+      ['Contact', 'contato'],
+    ],
+    projects: [
+      {
+        title: 'Library System',
+        type: 'Full Stack',
+        description: 'Online library management system with authentication, users, collection, automatic emails, and PDF book viewer.',
+        tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
+        code: 'https://github.com/RodrigoMA21/biblioteca-java-react',
+        demo: 'https://biblioteca-java-react-1.onrender.com/',
+      },
+      {
+        title: 'BarberFlow (In development)',
+        type: 'Web Application',
+        description: 'Web application project for the barbershop context, developed in JavaScript and structured as an evolving product.',
+        tags: ['JavaScript', 'Web App', 'GitHub'],
+        code: 'https://github.com/RodrigoMA21/barberflow',
+      },
+      {
+        title: 'WhatsApp Job Bot',
+        type: 'Automation',
+        description: 'Automation that searches jobs via API, processes the results and sends formatted notifications directly through WhatsApp.',
+        tags: ['Make', 'RapidAPI', 'Twilio', 'WhatsApp'],
+        code: 'https://github.com/RodrigoMA21/job-whatsapp-bot',
+      },
+      {
+        title: 'JobFinder',
+        type: 'Web Application',
+        description: 'Tech job search platform in Brazil, with data collected from multiple APIs and advanced filters.',
+        tags: ['Python', 'FastAPI', 'React', 'TypeScript'],
+        code: 'https://github.com/RodrigoMA21/JobFinder',
+        demo: 'https://job-finder-seven-rust.vercel.app/',
+      },
+    ],
+    timeline: [
+      {
+        label: 'Experience',
+        title: 'Quality Assurance (QA)',
+        description: 'Working with software quality, performing tests, identifying bugs and contributing to more reliable user experiences.',
+      },
+      {
+        label: 'Today',
+        title: 'Full Stack Developer',
+        description: 'Building personal projects and expanding my repertoire in web development, automation and engineering best practices.',
+      },
+      {
+        label: 'In progress',
+        title: 'Studies and specialization',
+        description: 'Deepening knowledge in React, Node.js, databases and automated testing.',
+      },
+    ],
+  },
+
+  'es': {
+    'themeToggle.light': 'Activar modo claro',
+    'themeToggle.dark': 'Activar modo oscuro',
+    'header.menuLabel': 'Abrir menú',
+    'header.brandLabel': 'Inicio',
+    'header.navLabel': 'Navegación principal',
+    'header.cta': 'Vamos a hablar',
+    'hero.eyebrow': 'Disponible para nuevos desafíos',
+    'hero.greeting': 'Hola, soy',
+    'hero.description': 'Desarrollador Full Stack enfocado en Java, React y Spring Boot, creando aplicaciones web modernas, escalables e intuitivas.',
+    'hero.cta.work': 'Conoce mi trabajo',
+    'hero.cta.resume': 'Descargar currículum',
+    'hero.card.role1': 'Full Stack',
+    'hero.card.role2': 'Desarrollador',
+    'hero.card.availability': 'Disponible para oportunidades',
+    'hero.card.ariaLabel': 'Perfil profesional',
+    'hero.imgAlt': 'Rodrigo Mayer Alves',
+    'about.eyebrow': '01 / SOBRE MÍ',
+    'about.title': 'Tecnología con mirada humana.',
+    'about.p1': 'Me gusta transformar problemas reales en soluciones simples, bonitas y útiles. Trabajo desde la planificación hasta la entrega, uniendo código limpio, atención al detalle y una buena experiencia para quien usa el producto.',
+    'about.p2': 'Mi viaje está guiado por la curiosidad y la evolución continua — siempre explorando herramientas, patrones e ideas que hacen la web mejor.',
+    'about.cta': 'Creemos algo juntos',
+    'tech.eyebrow': '02 / TECNOLOGÍAS',
+    'tech.title': 'Herramientas que dan vida a las ideas.',
+    'tech.text': 'Tecnologías que utilizo en el desarrollo de APIs, aplicaciones web y experiencias digitales.',
+    'tech.imgAlt': 'Icono {tech}',
+    'projects.eyebrow': '03 / PROYECTOS',
+    'projects.title': 'Selección de trabajos.',
+    'projects.text': 'Proyectos que reflejan estudio, práctica y ganas de resolver problemas de verdad.',
+    'projects.code': 'Código',
+    'projects.view': 'Ver proyecto',
+    'projects.footer': 'Ve más proyectos en mi GitHub',
+    'projects.footerAria': 'Ve más proyectos en GitHub',
+    'projects.codeAria': 'Abrir código del proyecto {name}',
+    'projects.demoAria': 'Abrir demostración del proyecto {name}',
+    'experience.eyebrow': '04 / TRAYECTORIA',
+    'experience.title': 'Evolucionar es parte del proceso.',
+    'certificates.eyebrow': '05 / CERTIFICADOS',
+    'certificates.title': 'Aprendizaje que se convierte en entrega.',
+    'certificates.text': 'Estudios en Java que fortalecen mi actuación en el desarrollo de APIs, reglas de negocio y aplicaciones Full Stack.',
+    'certificates.complement': 'FORMACIÓN COMPLEMENTARIA',
+    'certificates.certTitle': 'Certificado Java',
+    'certificates.certDesc': 'Fundamentos y desarrollo de aplicaciones con Java.',
+    'certificates.certAria': 'Certificado de Java',
+    'certificates.javaAlt': 'Símbolo de Java',
+    'certificates.downloadCert': 'Descargar certificado',
+    'certificates.downloadResume': 'Descargar currículum',
+    'contact.eyebrow': '06 / CONTACTO',
+    'contact.title1': '¿Tienes una idea en mente?',
+    'contact.title2': 'Hablemos.',
+    'contact.email': 'Email:',
+    'contact.whatsapp': 'WhatsApp',
+    'contact.whatsappAria': 'Habla conmigo por WhatsApp',
+    'contact.whatsappImgAlt': 'WhatsApp',
+    'footer.text': 'Desarrollado por Rodrigo Mayer Alves',
+    'aria.backToTop': 'Volver al inicio',
+    navLinks: [
+      ['Sobre mí', 'sobre'],
+      ['Tecnologías', 'tecnologias'],
+      ['Proyectos', 'proyectos'],
+      ['Experiencia', 'experiencia'],
+      ['Contacto', 'contato'],
+    ],
+    projects: [
+      {
+        title: 'Sistema de Biblioteca',
+        type: 'Full Stack',
+        description: 'Sistema online de gestión de bibliotecas con autenticación, usuarios, catálogo, correos automáticos y visualización de libros en PDF.',
+        tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
+        code: 'https://github.com/RodrigoMA21/biblioteca-java-react',
+        demo: 'https://biblioteca-java-react-1.onrender.com/',
+      },
+      {
+        title: 'BarberFlow (En desarrollo)',
+        type: 'Aplicación web',
+        description: 'Proyecto de aplicación web para el contexto de barberías, desarrollado en JavaScript y estructurado como un producto en evolución.',
+        tags: ['JavaScript', 'Web App', 'GitHub'],
+        code: 'https://github.com/RodrigoMA21/barberflow',
+      },
+      {
+        title: 'Bot de Empleos de WhatsApp',
+        type: 'Automatización',
+        description: 'Automatización que busca empleos por API, procesa los resultados y envía notificaciones formateadas directamente por WhatsApp.',
+        tags: ['Make', 'RapidAPI', 'Twilio', 'WhatsApp'],
+        code: 'https://github.com/RodrigoMA21/job-whatsapp-bot',
+      },
+      {
+        title: 'JobFinder',
+        type: 'Aplicación web',
+        description: 'Plataforma de búsqueda de empleos tech en Brasil, con datos recopilados de múltiples APIs y filtros avanzados.',
+        tags: ['Python', 'FastAPI', 'React', 'TypeScript'],
+        code: 'https://github.com/RodrigoMA21/JobFinder',
+        demo: 'https://job-finder-seven-rust.vercel.app/',
+      },
+    ],
+    timeline: [
+      {
+        label: 'Experiencia',
+        title: 'Quality Assurance (QA)',
+        description: 'Actuación con calidad de software, realizando pruebas, identificando fallos y contribuyendo a experiencias más confiables para los usuarios.',
+      },
+      {
+        label: 'Hoy',
+        title: 'Desarrollador Full Stack',
+        description: 'Construyendo proyectos personales y ampliando mi repertorio en desarrollo web, automatización y buenas prácticas de ingeniería.',
+      },
+      {
+        label: 'En evolución',
+        title: 'Estudios y especialización',
+        description: 'Profundizando conocimientos en React, Node.js, bases de datos y pruebas automatizadas.',
+      },
+    ],
+  },
+};
+
+const I18nContext = createContext(null);
+
+export function I18nProvider({ children }) {
+  const [locale, setLocale] = useState(
+    () => localStorage.getItem('locale') || 'pt-BR'
+  );
+
+  useEffect(() => {
+    localStorage.setItem('locale', locale);
+    document.documentElement.lang = locale;
+    const titles = {
+      'pt-BR': 'Portfólio - Rodrigo Mayer Alves',
+      'en': 'Portfolio - Rodrigo Mayer Alves',
+      'es': 'Portafolio - Rodrigo Mayer Alves',
+    };
+    document.title = titles[locale];
+  }, [locale]);
+
+  const t = (key) => {
+    const keys = key.split('.');
+    let value = translations[locale];
+    for (const k of keys) {
+      if (value == null) return key;
+      value = value[k];
+    }
+    return value;
+  };
+
+  return (
+    <I18nContext.Provider value={{ t, locale, setLocale, data: translations[locale] }}>
+      {children}
+    </I18nContext.Provider>
+  );
+}
+
+export function useTranslation() {
+  const ctx = useContext(I18nContext);
+  if (!ctx) throw new Error('useTranslation must be used within I18nProvider');
+  return ctx;
+}

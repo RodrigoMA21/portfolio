@@ -2,51 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import JourneyFigure from "./components/JourneyFigure.jsx";
 import LaunchScene from "./components/LaunchScene.jsx";
-
-const navLinks = [
-  ["Sobre", "sobre"],
-  ["Tecnologias", "tecnologias"],
-  ["Projetos", "projetos"],
-  ["Experiência", "experiencia"],
-  ["Contato", "contato"],
-];
-
-const projects = [
-  {
-    title: "Sistema de Biblioteca",
-    type: "Full Stack",
-    description:
-      "Sistema online de gestão de biblioteca, com autenticação, usuários, acervo, e-mails automáticos e visualização de livros em PDF.",
-    tags: ["Java", "Spring Boot", "React", "PostgreSQL"],
-    code: "https://github.com/RodrigoMA21/biblioteca-java-react",
-    demo: "https://biblioteca-java-react-1.onrender.com/",
-  },
-  {
-    title: "BarberFlow (Em desenvolvimento)",
-    type: "Aplicação web",
-    description:
-      "Projeto de aplicação web para o contexto de barbearias, desenvolvido em JavaScript e estruturado como um produto em evolução.",
-    tags: ["JavaScript", "Web App", "GitHub"],
-    code: "https://github.com/RodrigoMA21/barberflow",
-  },
-  {
-    title: "Bot de Vagas no WhatsApp",
-    type: "Automação",
-    description:
-      "Automação que pesquisa vagas por API, processa os resultados e envia notificações formatadas diretamente pelo WhatsApp.",
-    tags: ["Make", "RapidAPI", "Twilio", "WhatsApp"],
-    code: "https://github.com/RodrigoMA21/job-whatsapp-bot",
-  },
-  {
-    title: "JobFinder",
-    type: "Aplicação web",
-    description:
-      "Plataforma de busca de vagas de tecnologia no Brasil, com dados coletados de múltiplas APIs e filtros avançados.",
-    tags: ["Python", "FastAPI", "React", "TypeScript"],
-    code: "https://github.com/RodrigoMA21/JobFinder",
-    demo: "https://job-finder-seven-rust.vercel.app/",
-  },
-];
+import { useTranslation } from "./i18n.jsx";
 
 const technologies = [
   { name: "Java", icon: "java" },
@@ -382,6 +338,7 @@ function SectionTitle({ eyebrow, title, text }) {
 }
 
 function App() {
+  const { t, locale, setLocale, data } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const closeMenu = () => setMenuOpen(false);
@@ -447,41 +404,69 @@ function App() {
     return () => window.removeEventListener("scroll", updateBackToTop);
   }, []);
 
+  const locales = [
+    { code: 'pt-BR', label: 'PT' },
+    { code: 'en', label: 'EN' },
+    { code: 'es', label: 'ES' },
+  ];
+
   return (
     <main data-theme={theme}>
       <button
         className="theme-toggle"
         onClick={toggleTheme}
         aria-label={
-          theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"
+          theme === "dark" ? t("themeToggle.light") : t("themeToggle.dark")
         }
       >
         <Icon name={theme === "dark" ? "moon" : "sun"} size={20} />
       </button>
       <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Início">
+        <a className="brand" href="#inicio" aria-label={t("header.brandLabel")}>
           R<span>.</span>
         </a>
         <button
           className="menu-button"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menu"
+          aria-label={t("header.menuLabel")}
           aria-expanded={menuOpen}
         >
           <Icon name={menuOpen ? "close" : "menu"} />
         </button>
         <nav
           className={menuOpen ? "open" : ""}
-          aria-label="Navegação principal"
+          aria-label={t("header.navLabel")}
         >
-          {navLinks.map(([label, id]) => (
+          {data.navLinks.map(([label, id]) => (
             <a key={id} href={`#${id}`} onClick={closeMenu}>
               {label}
             </a>
           ))}
+          <div className="lang-switcher-mobile">
+            {locales.map((l) => (
+              <button
+                key={l.code}
+                className={`lang-btn${locale === l.code ? " active" : ""}`}
+                onClick={() => setLocale(l.code)}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
         </nav>
+        <div className="lang-switcher">
+          {locales.map((l) => (
+            <button
+              key={l.code}
+              className={`lang-btn${locale === l.code ? " active" : ""}`}
+              onClick={() => setLocale(l.code)}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
         <a className="header-cta" href="#contato">
-          Vamos conversar <Icon name="arrow" size={17} />
+          {t("header.cta")} <Icon name="arrow" size={17} />
         </a>
       </header>
 
@@ -498,81 +483,73 @@ function App() {
       <section id="inicio" className="hero-section">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy">
-          <p className="eyebrow">Disponível para novos desafios</p>
+          <p className="eyebrow">{t("hero.eyebrow")}</p>
           <h1>
-            Olá, eu sou
+            {t("hero.greeting")}
             <br />
             <em>Rodrigo Mayer Alves</em>
           </h1>
 
           <p className="hero-description">
-            Desenvolvedor Full Stack com foco em Java, React e Spring Boot,
-            criando aplicações web modernas, escaláveis e intuitivas.
+            {t("hero.description")}
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#projetos">
-              Conheça meu trabalho <Icon name="arrow" size={18} />
+              {t("hero.cta.work")} <Icon name="arrow" size={18} />
             </a>
             <a
               className="button ghost"
               href="/Rodrigo_Mayer_Alves_Curriculo_TI.pdf"
               download
             >
-              <Icon name="download" size={18} /> Baixar currículo
+              <Icon name="download" size={18} /> {t("hero.cta.resume")}
             </a>
           </div>
         </div>
-        <aside className="hero-card" aria-label="Perfil profissional">
+        <aside className="hero-card" aria-label={t("hero.card.ariaLabel")}>
           <div className="orb orb-one" />
           <div className="orb orb-two" />
 
           <img
             src="/profile.jpg.png"
-            alt="Rodrigo Mayer Alves"
+            alt={t("hero.imgAlt")}
             className="profile-photo"
           />
 
           <h3 className="profile-name">Rodrigo Mayer Alves</h3>
 
           <p className="profile-role">
-            Full Stack
+            {t("hero.card.role1")}
             <br />
-            Developer
+            {t("hero.card.role2")}
           </p>
 
           <div className="availability">
             <span />
-            Disponível para oportunidades
+            {t("hero.card.availability")}
           </div>
         </aside>
       </section>
 
       <section id="sobre" className="about section reveal">
         <SectionTitle
-          eyebrow="01 / SOBRE MIM"
-          title="Tecnologia com olhar para pessoas."
+          eyebrow={t("about.eyebrow")}
+          title={t("about.title")}
         />
         <div className="about-text">
-          <p>
-            Gosto de transformar problemas reais em soluções simples, bonitas e
-            úteis. Trabalho do planejamento à entrega, unindo código limpo,
-            atenção aos detalhes e uma boa experiência para quem usa o produto.
-          </p>
-          <p>
-            Minha jornada é guiada por curiosidade e evolução contínua — sempre
-            explorando ferramentas, padrões e ideias que tornam a web melhor.
-          </p>
+          <p>{t("about.p1")}</p>
+          <p>{t("about.p2")}</p>
           <a className="text-link" href="#contato">
-            Vamos criar algo juntos <Icon name="arrow" size={17} />
+            {t("about.cta")} <Icon name="arrow" size={17} />
           </a>
         </div>
       </section>
 
       <section id="tecnologias" className="section tech-section reveal">
         <SectionTitle
-          eyebrow="02 / TECNOLOGIAS"
-          title="Ferramentas que dão vida às ideias."
-          text="Tecnologias que utilizo no desenvolvimento de APIs, aplicações web e experiências digitais."
+          eyebrow={t("tech.eyebrow")}
+          title={t("tech.title")}
+          text={t("tech.text")}
         />
         <div className="tech-grid">
           {technologies.map((tech, index) => (
@@ -580,7 +557,7 @@ function App() {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <img
                 src={`https://skillicons.dev/icons?i=${tech.icon}&theme=dark`}
-                alt={`Ícone ${tech.name}`}
+                alt={t("tech.imgAlt").replace("{tech}", tech.name)}
                 loading="lazy"
               />
               <strong>{tech.name}</strong>
@@ -591,12 +568,12 @@ function App() {
 
       <section id="projetos" className="section projects-section reveal">
         <SectionTitle
-          eyebrow="03 / PROJETOS"
-          title="Seleção de trabalhos."
-          text="Projetos que refletem estudo, prática e vontade de resolver problemas de verdade."
+          eyebrow={t("projects.eyebrow")}
+          title={t("projects.title")}
+          text={t("projects.text")}
         />
         <div className="project-list">
-          {projects.map((project, index) => (
+          {data.projects.map((project, index) => (
             <article className="project-card" key={project.title}>
               <div className={`project-art art-${index + 1}`}>
                 <span>{project.type}</span>
@@ -623,9 +600,9 @@ function App() {
                       href={project.code}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={`Abrir código do projeto ${project.title}`}
+                      aria-label={t("projects.codeAria").replace("{name}", project.title)}
                     >
-                      Código <Icon name="github" size={17} />
+                      {t("projects.code")} <Icon name="github" size={17} />
                     </a>
                   )}
                   {project.demo && (
@@ -633,9 +610,9 @@ function App() {
                       href={project.demo}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={`Abrir demonstração do projeto ${project.title}`}
+                      aria-label={t("projects.demoAria").replace("{name}", project.title)}
                     >
-                      Ver projeto <Icon name="external" size={17} />
+                      {t("projects.view")} <Icon name="external" size={17} />
                     </a>
                   )}
                 </div>
@@ -649,114 +626,89 @@ function App() {
             href="https://github.com/RodrigoMA21"
             target="_blank"
             rel="noreferrer"
-            aria-label="Confira mais projetos no GitHub"
+            aria-label={t("projects.footerAria")}
           >
-            <Icon name="github" size={18} /> Confira mais projetos em meu GitHub
+            <Icon name="github" size={18} /> {t("projects.footer")}
           </a>
         </div>
       </section>
 
       <section id="experiencia" className="section experience reveal">
         <SectionTitle
-          eyebrow="04 / TRAJETÓRIA"
-          title="Evoluir faz parte do processo."
+          eyebrow={t("experience.eyebrow")}
+          title={t("experience.title")}
         />
         <div className="timeline">
-          <article>
-            <span>Experiência</span>
-            <div>
-              <h3>Quality Assurance (QA)</h3>
-              <p>
-                Atuação com qualidade de software, realizando testes,
-                identificando falhas e contribuindo para experiências mais
-                confiáveis para os usuários.
-              </p>
-            </div>
-          </article>
-          <article>
-            <span>Hoje</span>
-            <div>
-              <h3>Desenvolvedor Full Stack</h3>
-              <p>
-                Construindo projetos pessoais e ampliando repertório em
-                desenvolvimento web, automação e boas práticas de engenharia.
-              </p>
-            </div>
-          </article>
-          <article>
-            <span>Em evolução</span>
-            <div>
-              <h3>Estudos e especialização</h3>
-              <p>
-                Aprofundando conhecimentos em React, Node.js, bancos de dados e
-                testes automatizados.
-              </p>
-            </div>
-          </article>
+          {data.timeline.map((item, index) => (
+            <article key={index}>
+              <span>{item.label}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
       <section id="certificados" className="section certificate reveal">
         <div>
-          <p className="eyebrow">05 / CERTIFICADOS</p>
-          <h2>Aprendizado que vira entrega.</h2>
-          <p>
-            Estudos em Java que fortalecem minha atuação no desenvolvimento de
-            APIs, regras de negócio e aplicações Full Stack.
-          </p>
+          <p className="eyebrow">{t("certificates.eyebrow")}</p>
+          <h2>{t("certificates.title")}</h2>
+          <p>{t("certificates.text")}</p>
           <a
             className="button ghost certificate-download"
             href="/Rodrigo_Mayer_Alves_Curriculo_TI.pdf"
             download
           >
-            <Icon name="download" size={18} /> Baixar currículo
+            <Icon name="download" size={18} /> {t("certificates.downloadResume")}
           </a>
         </div>
-        <article className="certificate-card" aria-label="Certificado de Java">
+        <article className="certificate-card" aria-label={t("certificates.certAria")}>
           <div className="certificate-seal">
             <img
               src="https://skillicons.dev/icons?i=java&theme=dark"
-              alt="Símbolo Java"
+              alt={t("certificates.javaAlt")}
             />
           </div>
           <div>
-            <span>FORMAÇÃO COMPLEMENTAR</span>
-            <h3>Certificado Java</h3>
-            <p>Fundamentos e desenvolvimento de aplicações com Java.</p>
+            <span>{t("certificates.complement")}</span>
+            <h3>{t("certificates.certTitle")}</h3>
+            <p>{t("certificates.certDesc")}</p>
             <a
               className="certificate-link"
               href="/certificado-java-rodrigo-mayer-alves.pdf"
               download
             >
-              <Icon name="download" size={16} /> Baixar certificado
+              <Icon name="download" size={16} /> {t("certificates.downloadCert")}
             </a>
           </div>
         </article>
       </section>
 
       <section id="contato" className="contact reveal">
-        <p className="eyebrow">06 / CONTATO</p>
+        <p className="eyebrow">{t("contact.eyebrow")}</p>
         <h2>
-          Tem uma ideia em mente?
+          {t("contact.title1")}
           <br />
-          <em>Vamos conversar.</em>
+          <em>{t("contact.title2")}</em>
         </h2>
         <a className="contact-email" href="mailto:rodxlr@gmail.com">
-          <span className="contact-label">Email:</span> rodxlr@gmail.com
+          <span className="contact-label">{t("contact.email")}</span> rodxlr@gmail.com
         </a>
         <a
           className="contact-whatsapp"
           href="https://wa.me/5554984479052"
           target="_blank"
           rel="noreferrer"
-          aria-label="Fale comigo pelo WhatsApp"
+          aria-label={t("contact.whatsappAria")}
         >
           <img
             src="/WhatsApp_Logo_PNG_Sem_Fundo_Transparente.png"
-            alt="WhatsApp"
+            alt={t("contact.whatsappImgAlt")}
             className="whatsapp-icon"
           />{" "}
-          WhatsApp
+          {t("contact.whatsapp")}
         </a>
       </section>
 
@@ -764,7 +716,7 @@ function App() {
         <a className="brand" href="#inicio">
           R<span>.</span>
         </a>
-        <p>Desenvolvido por Rodrigo Mayer Alves · {new Date().getFullYear()}</p>
+        <p>{t("footer.text")} · {new Date().getFullYear()}</p>
         <div>
           <a
             href="https://github.com/RodrigoMA21"
@@ -793,7 +745,7 @@ function App() {
         className={`back-to-top ${showBackToTop ? "visible" : ""}`}
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Voltar ao topo"
+        aria-label={t("aria.backToTop")}
       >
         <Icon name="up" size={20} />
       </button>
