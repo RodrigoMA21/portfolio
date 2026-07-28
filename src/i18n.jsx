@@ -364,15 +364,7 @@ export function I18nProvider({ children }) {
   }, [locale]);
 
   const current = translations[locale] || translations['pt-BR'];
-  const t = (key) => {
-    const keys = key.split('.');
-    let value = current;
-    for (const k of keys) {
-      if (value == null) return key;
-      value = value[k];
-    }
-    return value ?? key;
-  };
+  const t = (key) => current[key] ?? key;
 
   return (
     <I18nContext.Provider value={{ t, locale, setLocale, data: translations[locale] }}>
