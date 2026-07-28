@@ -539,6 +539,14 @@ function App() {
         <div className="about-text">
           <p>{t("about.p1")}</p>
           <p>{t("about.p2")}</p>
+          <div className="about-languages">
+            <h4>{t("about.languages")}</h4>
+            <ul>
+              {data.aboutLanguages.map((lang, i) => (
+                <li key={i}>{lang.flag} {lang.name} — {lang.level}</li>
+              ))}
+            </ul>
+          </div>
           <a className="text-link" href="#contato">
             {t("about.cta")} <Icon name="arrow" size={17} />
           </a>
