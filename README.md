@@ -159,14 +159,21 @@ A alternância entre idiomas é feita através dos botões **PT / EN / ES** no c
 
 ---
 
-# 🔮 Próximas melhorias
+# 📸 Demonstração
 
-- [ ] Versão em inglês
-- [ ] Melhorias de SEO
-- [ ] Modo claro
-- [ ] Melhorias de acessibilidade
-- [ ] Adicionar screenshot do portfólio ao README
-- [ ] Adicionar animações e interações
+<p align="center">
+  <img src="public/web.png" alt="Portfólio versão desktop" width="80%" />
+  <br/>
+  <em>Versão desktop</em>
+</p>
+
+<br/>
+
+<p align="center">
+  <img src="public/mobile.png" alt="Portfólio versão mobile" width="250px" />
+  <br/>
+  <em>Versão mobile</em>
+</p>
 
 ---
 
