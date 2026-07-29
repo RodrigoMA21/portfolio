@@ -314,15 +314,22 @@ function SearchIll() {
         fill="currentColor"
         opacity="0.15"
       />
-      <rect
-        x="14"
-        y="17"
-        width="6"
-        height="2"
-        rx="1"
-        fill="currentColor"
-        opacity="0.15"
-      />
+    </svg>
+  );
+}
+
+function InventoryIll() {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="28" height="28" rx="3" stroke="currentColor" strokeWidth="0.8" opacity="0.3" fill="none" />
+      <rect x="6" y="6" width="28" height="10" rx="3" fill="currentColor" opacity="0.06" />
+      <rect x="6" y="6" width="28" height="10" rx="3" stroke="currentColor" strokeWidth="0.7" opacity="0.25" fill="none" />
+      <rect x="10" y="8" width="8" height="6" rx="1" fill="currentColor" opacity="0.12" />
+      <rect x="22" y="8" width="8" height="6" rx="1" fill="currentColor" opacity="0.12" />
+      <rect x="10" y="18" width="8" height="6" rx="1" fill="currentColor" opacity="0.1" />
+      <rect x="22" y="18" width="8" height="6" rx="1" fill="currentColor" opacity="0.1" />
+      <rect x="10" y="27" width="8" height="6" rx="1" fill="currentColor" opacity="0.08" />
+      <rect x="22" y="27" width="8" height="6" rx="1" fill="currentColor" opacity="0.08" />
     </svg>
   );
 }
@@ -591,6 +598,7 @@ function App() {
                   {index === 1 && <ScissorsIll />}
                   {index === 2 && <RobotIll />}
                   {index === 3 && <SearchIll />}
+                  {index === 4 && <InventoryIll />}
                 </div>
               </div>
               <div className="project-content">
