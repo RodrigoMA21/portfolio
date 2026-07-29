@@ -101,6 +101,13 @@ const translations = {
         code: 'https://github.com/RodrigoMA21/JobFinder',
         demo: 'https://job-finder-seven-rust.vercel.app/',
       },
+      {
+        title: 'EquipManager',
+        type: 'Full Stack',
+        description: 'Sistema completo de gestão de equipamentos com API REST em Spring Boot e frontend moderno em React com autenticação JWT, CRUDs, dashboards e alertas automáticos.',
+        tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
+        code: 'https://github.com/RodrigoMA21/equip-manager',
+      },
     ],
     timeline: [
       {
@@ -220,6 +227,13 @@ const translations = {
         code: 'https://github.com/RodrigoMA21/JobFinder',
         demo: 'https://job-finder-seven-rust.vercel.app/',
       },
+      {
+        title: 'EquipManager',
+        type: 'Full Stack',
+        description: 'Complete equipment management system with REST API in Spring Boot and modern React frontend featuring JWT authentication, CRUDs, dashboards and automatic alerts.',
+        tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
+        code: 'https://github.com/RodrigoMA21/equip-manager',
+      },
     ],
     timeline: [
       {
@@ -338,6 +352,13 @@ const translations = {
         tags: ['Python', 'FastAPI', 'React', 'TypeScript'],
         code: 'https://github.com/RodrigoMA21/JobFinder',
         demo: 'https://job-finder-seven-rust.vercel.app/',
+      },
+      {
+        title: 'EquipManager',
+        type: 'Full Stack',
+        description: 'Sistema completo de gestión de equipos con API REST en Spring Boot y frontend moderno en React con autenticación JWT, CRUDs, tableros y alertas automáticas.',
+        tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
+        code: 'https://github.com/RodrigoMA21/equip-manager',
       },
     ],
     timeline: [
